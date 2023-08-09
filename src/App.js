@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./components/About";
 import Users from "./components/Users";
@@ -27,10 +27,27 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to={`/`}>Home</Link>
+            <NavLink
+              style={({ isActive, isPending }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  color: isPending ? "red" : "black",
+                };
+              }}
+              to={`/`}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to={`/about`}>About</Link>
+            <NavLink
+               className={({ isActive, isPending }) =>
+               isPending ? "pending" : isActive ? "active" : ""
+             }
+              to={`/about`}
+            >
+              About
+            </NavLink>
           </li>
           <li>
             <Link to={`/users`}>Users</Link>
