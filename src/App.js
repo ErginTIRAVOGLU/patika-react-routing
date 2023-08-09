@@ -4,6 +4,8 @@ import About from "./components/About";
 import Users from "./components/Users";
 import Home from "./components/Home";
 import User from "./components/User";
+import Page404 from "./components/Page404";
+/*import User from "./components/User";*/
 
 function App() {
   /*
@@ -38,8 +40,13 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/user/:id" element={<User />} />
+        <Route path="/users/*" element={<Users />}>
+          <Route path="user/:id" element={<User />}></Route>
+        </Route>
+
+        <Route path="*" element={<Page404 />}></Route>
+
+        {/*<Route path="/user/:id" element={<User />} />*/}
       </Routes>
     </div>
   );
