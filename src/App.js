@@ -3,6 +3,7 @@ import "./App.css";
 import About from "./components/About";
 import Users from "./components/Users";
 import Home from "./components/Home";
+import User from "./components/User";
 
 function App() {
   /*
@@ -35,9 +36,10 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/about" element={<About/>} />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/user/:id" element={<User />} />
       </Routes>
     </div>
   );
